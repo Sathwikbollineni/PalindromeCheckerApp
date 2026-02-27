@@ -1,41 +1,31 @@
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
 
+                String input = "madam";   // Input string
 
-                // Hardcoded string
-                String word = "madam";
-        System.out.println("input text:"+word);
-                // Assume it is palindrome
+                // Convert string to character array
+                char[] characters = input.toCharArray();
+
+                int start = 0;
+                int end = characters.length - 1;
                 boolean isPalindrome = true;
 
-                // Compare characters from both ends
-                for (int i = 0; i < word.length() / 2; i++) {
-                    if (word.charAt(i) != word.charAt(word.length() - 1 - i)) {
+                // Two-pointer comparison
+                while (start < end) {
+                    if (characters[start] != characters[end]) {
                         isPalindrome = false;
                         break;
                     }
+                    start++;
+                    end--;
                 }
 
-                // Print result using if-else
+                // Display result
                 if (isPalindrome) {
-                    System.out.println( " is it a Palindrome?:true.");
+                    System.out.println("The string is a palindrome.");
                 } else {
-                    System.out.println(" is NOT a Palindrome? :false.");
-
-                            String original = "madam";   // Input string
-                            String reversed = "";        // To store reversed string
-
-                            // Reverse string using for loop
-                            for (int i = original.length() - 1; i >= 0; i--) {
-                                reversed = reversed + original.charAt(i);
-                            }
-
-                            // Compare original and reversed string
-                            if (original.equals(reversed)) {
-                                System.out.println("The string is a palindrome.");
-                            } else {
-                                System.out.println("The string is not a palindrome.");
-                            }
-                        }
-                    }
+                    System.out.println("The string is not a palindrome.");
                 }
+            }
+        }
+
